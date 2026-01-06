@@ -11,7 +11,7 @@ import torch.nn.functional as F
 
 def main(args):
     if args.white_background:
-        background_color = (255, 255, 255) 
+        background_color = (1, 1, 1) 
     else:
         background_color = (0, 0, 0)
     
