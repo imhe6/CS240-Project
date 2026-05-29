@@ -1,10 +1,11 @@
-hr_source_dir: <path to directory of the HR dataset>
-lr_source_dir: <path to directory of the LR dataset to be saved>
-vsr_save_dir: <path to directory of the VSR-upsampled dataset to be saved>
+port: 6060
+hr_source_dir: "data-dir/blender/nerf_synthetic"
+lr_source_dir: "data-dir/blender/nerf_synthetic_lr"
+vsr_save_dir: "data-dir/blender/nerf_synthetic_vsr"
 video_save_path: Null
 vsr_model: psrt
-spynet_path: Null
-vsr_model_path: Null
+spynet_path: "vsr/psrt/experiments/pretrained_models/flownet/spynet_sintel_final-3d2a1287.pth"
+vsr_model_path: "vsr/psrt/experiments/pretrained_models/PSRT_Vimeo.pth"
 downscale_factor: 4
 subpixel: "bicubic"
 white_background: false

@@ -1,3 +1,11 @@
+# CS 240 Project
+
+总结了一些配置复现的时候需要注意的事项：[额外注意事项总结](additional-note.md)
+
+建议先阅读下面的原项目 README 文档，开始配环境了再读上面这个
+
+----
+
 <div align="center">
 <h2>Sequence Matters: Harnessing Video Models in 3D Super-Resolution<br>(AAAI 2025)</h2>
 

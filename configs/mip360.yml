@@ -1,10 +1,10 @@
 port: 6010
-hr_source_dir: <path to directory of the HR dataset>
-lr_source_dir: <path to directory of the LR dataset to be saved>
-vsr_save_dir: <path to directory of the VSR-upsampled dataset to be saved>
+hr_source_dir: "data-dir/mip360/360v2"
+lr_source_dir: "data-dir/mip360/360v2_lr"
+vsr_save_dir: "data-dir/mip360/360v2_vsr"
 video_save_path: Null
-spynet_path: Null
-vsr_model_path: Null
+spynet_path: "vsr/psrt/experiments/pretrained_models/flownet/spynet_sintel_final-3d2a1287.pth"
+vsr_model_path: "vsr/psrt/experiments/pretrained_models/PSRT_Vimeo.pth"
 vsr_model: psrt
 downscale_factor: 8
 upscale_factor: 4
