@@ -11,3 +11,4 @@ vsr/psrt/experiments/pretrained_models/PSRT_Vimeo.pth
 scripts/downscale_dataset_blender_matlab.py
 scripts/run_blender_debug.sh
 scripts/run_mip360_debug.sh
+.conda/
