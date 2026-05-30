@@ -15,8 +15,9 @@ def main(args):
     downscale_factor = args.downscale_factor
     upscale_factor = args.upscale_factor
 
-    scenes = ["bicycle", "bonsai", "counter", "garden", "kitchen", "room", "stump", "flowers", "treehill"]
-    scenes = ["flowers", "treehill"]
+    # flowers and treehill are not publicly available
+    scenes = ["bicycle", "bonsai", "counter", "garden", "kitchen", "room", "stump"]
+    # scenes.extend(["flowers", "treehill"])
     splits = ["images"]
 
     # Iterate through all subdirectories and process images
