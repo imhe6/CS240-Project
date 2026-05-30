@@ -1,0 +1,572 @@
+{
+  "config": {
+    "data": "synthetic",
+    "source": null,
+    "split": "train",
+    "n": 12,
+    "num_samples": 12,
+    "seed": 240,
+    "distance": "all",
+    "dp_limit": 16,
+    "window_size": 8,
+    "thresholds": [
+      0.2,
+      0.35,
+      1.01
+    ]
+  },
+  "results": {
+    "pose": {
+      "naive": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0,
+        "peak_memory_bytes": 0
+      },
+      "greedy": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.00014378409832715988,
+        "peak_memory_bytes": 1354
+      },
+      "adaptive": {
+        "order_or_subsequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.00013250112533569336,
+        "peak_memory_bytes": 1560
+      },
+      "held_karp": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.8366204798221588,
+        "peak_memory_bytes": 6295056
+      },
+      "greedy_2opt": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0005348473787307739,
+        "peak_memory_bytes": 1346
+      },
+      "greedy_windowed_dp": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 0.2255849008365156,
+          "max_adjacent_jump": 0.1459361703225615,
+          "mean_adjacent_cost": 0.020507718257865057,
+          "std_adjacent_cost": 0.03978210708261123,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.029010770842432976,
+        "peak_memory_bytes": 108968
+      }
+    },
+    "feature": {
+      "naive": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 4.582557788641438,
+          "max_adjacent_jump": 1.0,
+          "mean_adjacent_cost": 0.4165961626037671,
+          "std_adjacent_cost": 0.3090032170171498,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0,
+        "peak_memory_bytes": 0
+      },
+      "greedy": {
+        "order_or_subsequences": [
+          0,
+          1,
+          10,
+          7,
+          8,
+          5,
+          4,
+          3,
+          6,
+          9,
+          11,
+          2
+        ],
+        "metrics": {
+          "total_path_cost": 3.2217997465145753,
+          "max_adjacent_jump": 1.0,
+          "mean_adjacent_cost": 0.2928908860467796,
+          "std_adjacent_cost": 0.26283009161029997,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.00012177228927612305,
+        "peak_memory_bytes": 1354
+      },
+      "adaptive": {
+        "order_or_subsequences": [
+          [
+            0,
+            1,
+            10,
+            7,
+            8
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            9
+          ],
+          [
+            11
+          ]
+        ],
+        "metrics": {
+          "total_path_cost": 0.5690747782002534,
+          "max_adjacent_jump": 0.18884664131812423,
+          "mean_adjacent_cost": 0.11381495564005069,
+          "std_adjacent_cost": 0.06691919191230353,
+          "coverage": 1.0,
+          "num_subsequences": 7,
+          "min_subsequence_length": 1,
+          "max_subsequence_length": 5,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0001297537237405777,
+        "peak_memory_bytes": 1560
+      },
+      "held_karp": {
+        "order_or_subsequences": [
+          2,
+          11,
+          9,
+          1,
+          0,
+          10,
+          7,
+          8,
+          5,
+          4,
+          3,
+          6
+        ],
+        "metrics": {
+          "total_path_cost": 2.8967046894803543,
+          "max_adjacent_jump": 1.0,
+          "mean_adjacent_cost": 0.2633367899527595,
+          "std_adjacent_cost": 0.25434170438945275,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.8752055894583464,
+        "peak_memory_bytes": 6185888
+      },
+      "greedy_2opt": {
+        "order_or_subsequences": [
+          0,
+          1,
+          10,
+          7,
+          8,
+          5,
+          4,
+          3,
+          6,
+          9,
+          11,
+          2
+        ],
+        "metrics": {
+          "total_path_cost": 3.2217997465145753,
+          "max_adjacent_jump": 1.0,
+          "mean_adjacent_cost": 0.2928908860467796,
+          "std_adjacent_cost": 0.26283009161029997,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0005015060305595398,
+        "peak_memory_bytes": 1274
+      },
+      "greedy_windowed_dp": {
+        "order_or_subsequences": [
+          0,
+          1,
+          10,
+          7,
+          8,
+          5,
+          4,
+          3,
+          6,
+          9,
+          11,
+          2
+        ],
+        "metrics": {
+          "total_path_cost": 3.2217997465145753,
+          "max_adjacent_jump": 1.0,
+          "mean_adjacent_cost": 0.2928908860467796,
+          "std_adjacent_cost": 0.26283009161029997,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.02909117378294468,
+        "peak_memory_bytes": 108864
+      }
+    },
+    "hybrid": {
+      "naive": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 1.4826205516326791,
+          "max_adjacent_jump": 0.3437344713301969,
+          "mean_adjacent_cost": 0.13478368651206174,
+          "std_adjacent_cost": 0.11782865850076188,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0,
+        "peak_memory_bytes": 0
+      },
+      "greedy": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 1.4826205516326791,
+          "max_adjacent_jump": 0.3437344713301969,
+          "mean_adjacent_cost": 0.13478368651206174,
+          "std_adjacent_cost": 0.11782865850076188,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0001226291060447693,
+        "peak_memory_bytes": 1354
+      },
+      "adaptive": {
+        "order_or_subsequences": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "metrics": {
+          "total_path_cost": 0.5875007906846555,
+          "max_adjacent_jump": 0.17728607680394703,
+          "mean_adjacent_cost": 0.07343759883558194,
+          "std_adjacent_cost": 0.06182447133742871,
+          "coverage": 1.0,
+          "num_subsequences": 4,
+          "min_subsequence_length": 1,
+          "max_subsequence_length": 8,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.0001254519447684288,
+        "peak_memory_bytes": 1528
+      },
+      "held_karp": {
+        "order_or_subsequences": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          0,
+          1,
+          2
+        ],
+        "metrics": {
+          "total_path_cost": 1.3400360004425473,
+          "max_adjacent_jump": 0.341508900541655,
+          "mean_adjacent_cost": 0.12182145458568612,
+          "std_adjacent_cost": 0.10073157529394113,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.8639836385846138,
+        "peak_memory_bytes": 6178208
+      },
+      "greedy_2opt": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 1.4826205516326791,
+          "max_adjacent_jump": 0.3437344713301969,
+          "mean_adjacent_cost": 0.13478368651206174,
+          "std_adjacent_cost": 0.11782865850076188,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.000503789633512497,
+        "peak_memory_bytes": 1346
+      },
+      "greedy_windowed_dp": {
+        "order_or_subsequences": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "metrics": {
+          "total_path_cost": 1.4826205516326791,
+          "max_adjacent_jump": 0.3437344713301969,
+          "mean_adjacent_cost": 0.13478368651206174,
+          "std_adjacent_cost": 0.11782865850076188,
+          "coverage": 1.0,
+          "num_subsequences": 1,
+          "min_subsequence_length": 12,
+          "max_subsequence_length": 12,
+          "duplicate_visits": 0
+        },
+        "runtime_seconds": 0.029386858455836773,
+        "peak_memory_bytes": 109200
+      }
+    }
+  }
+}
