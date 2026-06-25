@@ -67,7 +67,8 @@ def held_karp_path(cost: np.ndarray, max_n: int = 16) -> tuple[list[int], float]
     cost = _validate_cost(cost)
     n = cost.shape[0]
     if n > max_n:
-        raise ValueError(f"Held-Karp DP is limited to N <= {max_n}, got {n}")
+        print(f"Held-Karp DP is limited to N <= {max_n}, got {n}, skipping")
+        return [0], float("inf")
     if n == 1:
         return [0], 0.0
 

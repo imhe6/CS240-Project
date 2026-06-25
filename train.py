@@ -292,7 +292,14 @@ def training_report(tb_writer, iteration, Ll1, loss, l1_loss, elapsed, testing_i
                     tb_writer.add_scalar(config['name'] + '/loss_viewpoint - psnr', psnr_test, iteration)
 
         if tb_writer:
-            tb_writer.add_histogram("scene/opacity_histogram", scene.gaussians.get_opacity, iteration)
+            opacity = scene.gaussians.get_opacity.detach().cpu().float().numpy().flatten()
+            try:
+                tb_writer.add_histogram("scene/opacity_histogram", opacity, iteration)
+            except Exception as e:
+                print(f"isnan: {torch.isnan(scene.gaussians.get_opacity).any()}, isinf: {torch.isinf(scene.gaussians.get_opacity).any()}")
+                print(f"Opacity type: {opacity.dtype}, shape: {opacity.shape}")
+                print(f"Min: {opacity.min()}, Max: {opacity.max()}")
+                print(f"TensorBoard histogram logging skipped with exception: {e}， opacity histogram: {opacity}")
             tb_writer.add_scalar('total_points', scene.gaussians.get_xyz.shape[0], iteration)
         torch.cuda.empty_cache()
 
