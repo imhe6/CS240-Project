@@ -142,7 +142,9 @@ output/cs240_ordering/
 
 从起点出发，每次选取距离当前节点最近的未访问节点：
 
-$$\text{next} = \arg\min_{v \notin \text{visited}} C[\text{current}, v]$$
+$$
+\text{next} = \arg\min_{v \notin \text{visited}} C[\text{current}, v]
+$$
 
 - 复杂度 $O(N^2)$
 - 缺点：贪心局部最优可能累积为全局次优
@@ -151,7 +153,9 @@ $$\text{next} = \arg\min_{v \notin \text{visited}} C[\text{current}, v]$$
 
 不强制连接所有图像为单条序列，当最近未访问节点距离超过阈值时另起子序列：
 
-$$\text{if } \min_{v \notin \text{visited}} C[\text{current}, v] > \theta \text{ then start new subsequence}$$
+$$
+\text{if } \min_{v \notin \text{visited}} C[\text{current}, v] > \theta \text{ then start new subsequence}
+$$
 
 - 适合需局部连续输入的 VSR 类模型
 - 避免突兀的相邻帧跳变
@@ -161,7 +165,9 @@ $$\text{if } \min_{v \notin \text{visited}} C[\text{current}, v] > \theta \text{
 
 精确动态规划，求解小规模最优 Hamiltonian path：
 
-$$DP[S][j] = \min_{i \in S \setminus \{j\}} DP[S \setminus \{j\}][i] + C[i, j]$$
+$$
+DP[S][j] = \min_{i \in S \setminus \{j\}} DP[S \setminus \{j\}][i] + C[i, j]
+$$
 
 - 可得全局最优，作为 greedy 的 reference
 - 复杂度 $O(N^2 2^N)$，仅适用于小规模（默认 $N \leq 16$）
@@ -187,7 +193,9 @@ $$DP[S][j] = \min_{i \in S \setminus \{j\}} DP[S \setminus \{j\}][i] + C[i, j]$$
 
 基于相机中心距离与 viewing direction 角度差：
 
-$$\text{pose\_dist} = \text{center\_dist} + \text{angle\_diff}$$
+$$
+\text{pose\_dist} = \text{center\_dist} + \text{angle\_diff}
+$$
 
 适合相机轨迹规则的数据。
 
@@ -197,7 +205,9 @@ $$\text{pose\_dist} = \text{center\_dist} + \text{angle\_diff}$$
 
 ### 3. Hybrid Distance
 
-$$\text{hybrid} = 0.7 \times \text{norm\_pose} + 0.3 \times \text{norm\_feature}$$
+$$
+\text{hybrid} = 0.7 \times \text{norm\_pose} + 0.3 \times \text{norm\_feature}
+$$
 
 默认推荐的折中方案：pose 提供几何稳定性，feature 提供内容信息。
 
