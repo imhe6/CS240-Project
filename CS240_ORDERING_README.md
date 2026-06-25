@@ -194,7 +194,7 @@ $$
 基于相机中心距离与 viewing direction 角度差：
 
 $$
-\text{pose\_dist} = \text{center\_dist} + \text{angle\_diff}
+\text{pose}_\text{dist} = \text{center}_\text{dist} + \text{angle}_\text{diff}
 $$
 
 适合相机轨迹规则的数据。
@@ -206,7 +206,7 @@ $$
 ### 3. Hybrid Distance
 
 $$
-\text{hybrid} = 0.7 \times \text{norm\_pose} + 0.3 \times \text{norm\_feature}
+\text{hybrid} = 0.7 \times \text{norm}_\text{pose} + 0.3 \times \text{norm}_\text{feature}
 $$
 
 默认推荐的折中方案：pose 提供几何稳定性，feature 提供内容信息。
