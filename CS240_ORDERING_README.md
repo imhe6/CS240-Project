@@ -1,6 +1,7 @@
 # CS240 Project: Multi-View Sequence Ordering
 
-> 本模块为课程项目算法部分的核心代码，独立于原 SequenceMatters 项目编写与实验。
+> 本目录中为课程项目算法部分的核心代码实现，独立于原 SequenceMatters 项目编写与实验。
+> （本实现的运行不需要 GPU）
 
 ## Overview
 
@@ -189,9 +190,11 @@ $$
 
 ## Distance Metrics
 
+以下是在我们的实验中评估图片两两之间“距离”所用的几类标准，均来自原论文 (SequenceMatters) 。
+
 ### 1. Pose Distance
 
-基于相机中心距离与 viewing direction 角度差：
+基于相机中心距离与视角方向 (viewing direction) 角度差：
 
 $$
 \text{pose}_\text{dist} = \text{center}_\text{dist} + \text{angle}_\text{diff}
@@ -201,7 +204,7 @@ $$
 
 ### 2. Feature Distance
 
-基于 ORB 特征匹配的 Hamming 距离，反映图像内容相似性。
+基于 ORB（Oriented FAST + Rotated BRIEF，为常用的图像特征点编码方法）特征进行匹配的 Hamming 距离，主要反映图像内容的相似性。
 
 ### 3. Hybrid Distance
 
@@ -209,15 +212,15 @@ $$
 \text{hybrid} = 0.7 \times \text{norm}_\text{pose} + 0.3 \times \text{norm}_\text{feature}
 $$
 
-默认推荐的折中方案：pose 提供几何稳定性，feature 提供内容信息。
+原项目推荐使用的方案，综合考虑了上述两种因素：Pose 提供几何稳定性，Feature 提供内容信息。
 
 ## Evaluation Metrics
 
-`metrics.csv` 中每行为一种 `(distance, algorithm)` 组合，关键列：
+输出的 evaluation 数据主要保存在 `metrics.csv` 中，每行为一种 `(distance, algorithm)` 组合，每列为一类 metric 。其中较为关键的列如下：
 
 | 列 | 含义 |
 |----|------|
-| `total_path_cost` | 序列所有相邻边权之和，越小越平滑 |
+| `total_path_cost` | 序列所有相邻边权之和，越小代表得出的图片序列过渡越平滑 |
 | `max_adjacent_jump` | 最大相邻跳变，越小越好 |
 | `mean_adjacent_cost` | 平均相邻距离 |
 | `std_adjacent_cost` | 相邻距离标准差，越小越均匀 |
@@ -228,7 +231,7 @@ $$
 
 排序结果见 `orders.json`，如 `"greedy": [0, 1, 10, 7, 8, ...]`。
 
-可视化：`plots/` 为相邻边权曲线（y 值为 edge cost，好的序列总体低、无尖峰、波动小），`strips/` 为图像序列拼接图。
+可视化：`plots/` 目录下为相邻边权曲线图（y 值为 edge cost，好的序列总体低、无尖峰、波动小），`strips/` 为图像序列拼接图。
 
 ## Example Results (Synthetic, n=12, seed=240)
 
@@ -249,14 +252,14 @@ python scripts/run_cs240_ordering_experiment.py --n 12 --seed 240
 - Hybrid 距离下 pose 信号较强，greedy 已接近最优，DP 仍有小幅改进。
 - Adaptive 的总成本显著更低，因其允许断开大跳变——体现了"局部平滑 vs. 单序列覆盖"的 trade-off。
 
-## 8. Recommended Experiment Configurations
+## Recommended Experiment Configs
 
 | 数据 | 命令 |
 |------|------|
-| 合成 | `--data synthetic --n 12 --seed 240 --distance all` |
-| Lego (16) | `--data blender --source .../lego --limit 16 --distance all` |
-| Chair (16) | `--data blender --source .../chair --limit 16 --distance all` |
-| Lego (80, 无 DP) | `--data blender --source .../lego --limit 80 --distance hybrid --dp-limit 12` |
+| 合成数据 | `--data synthetic --n 12 --seed 240 --distance all` |
+| 真实数据集 (Blender): Lego (限制最多 16 张图) | `--data blender --source .../lego --limit 16 --distance all` |
+| 真实数据集 (Blender): Chair (限制最多 16 张图) | `--data blender --source .../chair --limit 16 --distance all` |
+| 真实数据集 (Blender): Lego (最多 80 张图, 无 DP) | `--data blender --source .../lego --limit 80 --distance hybrid --dp-limit 12` |
 
 ## 常见问题
 
@@ -265,6 +268,4 @@ python scripts/run_cs240_ordering_experiment.py --n 12 --seed 240
 **Pose 距离下 naive 与 greedy 结果相同**：少数情况下，数据原先就已按相机轨迹顺序编号，导致 naive 已是最优解；可以手动打乱顺序或改用 feature/hybrid 距离。
 
 **Held-Karp DP 很慢**：Held-Karp DP 的复杂度是 $O(N^2 2^N)$，因此编写代码时设置了一个阈值，如数据量（图片数）超出此阈值则不在其上使用 Held-Karp DP。默认仅适用于 $N \leq 16$ 的数据集（`--dp-limit 16`）；数据较大的场景建议使用 greedy、2-opt 或 windowed DP。
-
-**是否需要 GPU**：不需要，所有算法均为基本的 CPU 实现。
 
